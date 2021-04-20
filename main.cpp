@@ -18,21 +18,7 @@ struct Student
     double avrScr = 0.0;
 };
 
-void sort_s(vector<Student>& vec, int j)
-{
-    Student tmp;
-    for (int i = 0; i < j - 1; i++)
-        for (int n = i + 1; n < j; n++) {
-            const char* d1 = vec[i].fio.c_str();
-            const char* d2 = vec[n].fio.c_str();
-            if (strcmp(d1, d2) > 0)
-            {
-                tmp = vec[i];
-                vec[i] = vec[j];
-                vec[j] = tmp;
-            }
-        }
-}
+
 
 
 int main(){
@@ -53,12 +39,10 @@ int main(){
                 getline(fi,stud_name);
     }
     fi.close();
-    sort_s(student, 5);
-
-    
+        
     int bad_score = 0;
     for (Student i : student){
-        if(i.avrScr<3) bad_score++;
+        if(i.avrScr>=3) bad_score++;
     }
     
     
